@@ -1,0 +1,29 @@
+{
+  "name": "hackernews-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ts-node-dev index.ts",
+  "scripts": {
+    "dev": "ts-node-dev --transpile-only --no-notify --exit-child src/index.ts",
+    "generate": "ts-node --transpile-only src/schema.ts",
+    "format":"prettier --write \"src/*/**.ts\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.6.1",
+    "prisma": "^3.11.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.11.1",
+    "apollo-server": "^3.6.7",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.0",
+    "graphql": "^15.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "nexus": "^1.3.0"
+  }
+}
