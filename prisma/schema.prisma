@@ -8,7 +8,6 @@ generator client {
 datasource db {
   provider = "sqlite"
   url      = "file:./dev.db"
-  // shadowDatabaseUrl = env("postgres://woyuovwljneyfo:7a13889143e39bd00110c783f339c15e6f67ad29681e8c94bda5a5061d8733b2@ec2-54-157-79-121.compute-1.amazonaws.com:5432/d7unba4odgjung")
 }
 
 model Link {
@@ -16,8 +15,9 @@ model Link {
   description String
   url         String   @unique
   createdAt   DateTime @default(now())
-  postedBy    User?    @relation(fields: [postedById], references: [id])
-  postedById  Int?
+  voters      User[]   @relation(name: "Votes")
+  User        User?    @relation("User", fields: [userId], references: [id])
+  userId      Int?
 }
 
 model User {
@@ -25,5 +25,6 @@ model User {
   name     String
   email    String @unique
   password String
-  links    Link[]
+  links    Link[] @relation(name: "User")
+  votes    Link[] @relation(name: "Votes")
 }
