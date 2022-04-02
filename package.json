@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "ts-node-dev --transpile-only --no-notify --exit-child src/index.ts",
     "generate": "ts-node --transpile-only src/schema.ts",
-    "format": "prettier --write \"src/*/**.ts\""
+    "format": "prettier --write \"src/*/**.ts\"",
+    "migrate-deploy":"prisma migrate deploy",
+    "build":"prisma generate && npm run generate && tsc",
+    "start":"node dist/src/index.ts"
   },
   "keywords": [],
   "author": "",
